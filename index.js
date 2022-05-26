@@ -12,6 +12,7 @@ app.set('view engine', 'ejs');
 // Setting the view directory to run outside
 app.set('views', path.join(__dirname,'/views'));
 
+// =============== GET METHOD ======================
 // GET request to the specified path
 // with the specified callback functions.
 app.get('/', (req,res) => {
@@ -24,6 +25,13 @@ app.get('/random', (req,res) => {
     // randNum = variable that store value
     // tempNum = argument that use in the template
     res.render('random', { tempNum: randNum }); // [locals] = an object
+})
+app.get('/r/:subreddit', (req, res) => {
+    // req.params = an object
+    const { subreddit } = req.params;
+    // console.log(req.params);
+    // console.log(subreddit);
+    res.render('subreddit', {name: subreddit})
 })
 
 // Listen for connections on the specified
