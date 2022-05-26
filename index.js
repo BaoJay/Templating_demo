@@ -5,10 +5,14 @@ const express = require('express');
 // as a callback to handle requests
 const app = express();
 
+// Tell my app to use EJS template
+app.set('view engine', 'ejs');
+
 // GET request to the specified path
 // with the specified callback functions.
 app.get('/', (req,res) => {
-    res.send("Hello world!!")
+    res.render('home');
+    // res.send("Hello world!!")
 })
 
 // Listen for connections on the specified
