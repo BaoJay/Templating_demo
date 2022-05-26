@@ -9,6 +9,7 @@ const path = require('path');
 
 // Tell my app to use EJS template
 app.set('view engine', 'ejs');
+// Setting the view directory to run outside
 app.set('views', path.join(__dirname,'/views'));
 
 // GET request to the specified path
@@ -17,6 +18,9 @@ app.get('/', (req,res) => {
     // Render a view & send the rendered
     // HTML string to the client
     res.render('home');
+})
+app.get('/random', (req,res) => {
+    res.render('random');
 })
 
 // Listen for connections on the specified
