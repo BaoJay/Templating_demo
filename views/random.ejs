@@ -10,5 +10,13 @@
     <h1>Your random GenX-year is:
         <%= tempNum %>
     </h1>
+
+    <% if (tempNum%2 === 0) { %>
+        <h2>This is even number!</h2>
+    <% } else { %>
+        <h2>This is odd number!</h2>
+    <% } %>
+
+    <h2>Đây là số <%= tempNum % 2 === 0 ? 'chẵn':'lẻ' %></h2>
 </body>
 </html>
