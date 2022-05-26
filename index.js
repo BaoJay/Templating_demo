@@ -20,7 +20,10 @@ app.get('/', (req,res) => {
     res.render('home');
 })
 app.get('/random', (req,res) => {
-    res.render('random');
+    const randNum = Math.floor(Math.random()*10)+1990;
+    // randNum = variable that store value
+    // tempNum = argument that use in the template
+    res.render('random', { tempNum: randNum }); // [locals] = an object
 })
 
 // Listen for connections on the specified
