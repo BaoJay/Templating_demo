@@ -4,15 +4,19 @@ const express = require('express');
 // design to be passed to Node's HTTP servers
 // as a callback to handle requests
 const app = express();
+// Create path to join the current directory
+const path = require('path');
 
 // Tell my app to use EJS template
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname,'/views'));
 
 // GET request to the specified path
 // with the specified callback functions.
 app.get('/', (req,res) => {
+    // Render a view & send the rendered
+    // HTML string to the client
     res.render('home');
-    // res.send("Hello world!!")
 })
 
 // Listen for connections on the specified
