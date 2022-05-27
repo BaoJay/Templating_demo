@@ -13,12 +13,17 @@ const path = require('path');
 // Retrieve data from ./data.json file
 const redditData = require('./data.json');
 
-app.use(express.static('public'));
+// Dùng middleware express.static để serve static file 
+// trong public folder
+// Dùng path.join để cố định đường dẫn đến public folder
+// (absolute path)
+app.use(express.static(path.join(__dirname,'public')));
 
 // Tell my app to use EJS template
 app.set('view engine', 'ejs');
 
 // Setting the view directory to run outside app directory
+// Dùng path.join để cố định đường dẫn đến views folder
 app.set('views', path.join(__dirname,'/views'));
 
 // =============== GET METHOD ======================
@@ -47,8 +52,10 @@ app.get('/r/:subreddit', (req, res) => {
     // Query the data from redditData by passing a parameter
     const data = redditData[subreddit];
     if (data) {
+        // Nếu có data thì trả về page subreddit
         res.render('subreddit', {...data})
     } else {
+        // Nếu ko có data thì trả về page notfound
         res.render('notfound', {subreddit})
     }
 })
