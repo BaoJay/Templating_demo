@@ -45,10 +45,10 @@ app.get('/r/:subreddit', (req, res) => {
     const { subreddit } = req.params;
     // Query the data from redditData by passing a parameter
     const data = redditData[subreddit];
-    const posts = data.posts;
+    // const posts = data.posts;
     console.log(data);
     // console.log(subreddit);
-    res.render('subreddit', {subreddit, data, posts})
+    res.render('subreddit', {...data})
 })
 
 // ============ Loops in EJS PAGE ====================
