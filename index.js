@@ -12,7 +12,6 @@ const path = require('path');
 
 // Retrieve data from ./data.json file
 const redditData = require('./data.json');
-console.log(redditData);
 
 // Tell my app to use EJS template
 app.set('view engine', 'ejs');
@@ -39,14 +38,14 @@ app.get('/random', (req,res) => {
     res.render('random', { tempNum: randNum }); // [locals] = an object
 })
 
-// ============ RANDOM NUMBER PAGE ====================
+// ============ SUBREDDIT PAGE ====================
 app.get('/r/:subreddit', (req, res) => {
     // req.params = an object
     const { subreddit } = req.params;
     // Query the data from redditData by passing a parameter
     const data = redditData[subreddit];
     // const posts = data.posts;
-    console.log(data);
+    // console.log(data);
     // console.log(subreddit);
     res.render('subreddit', {...data})
 })

@@ -15,7 +15,7 @@
 
     <% for (let post of posts) { %>
         <div>
-            <p><%= post.title %> - <span><b><%= post.author %></b></span></p>
+            <p><%= post.title %> - <b><%= post.author %></b></p>
             <% if (post.img) { %>
                 <img src="<%= post.img %>" alt="">
             <% } %>
